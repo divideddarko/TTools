@@ -1,0 +1,10 @@
+#ignore all logs
+*.logs
+*.log
+
+#ignore application settings
+appsettings.json
+
+#ignore directories
+/.vscode
+/bin
