@@ -24,5 +24,10 @@ namespace TTools
         {
             InitializeComponent();
         }
+
+        void welcomeClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This will start the welcome application");
+        }
     }
 }

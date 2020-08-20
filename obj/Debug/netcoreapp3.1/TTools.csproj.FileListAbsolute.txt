@@ -1,0 +1,17 @@
+C:\Users\divid\Documents\C Development\TTools\bin\Debug\netcoreapp3.1\TTools.exe
+C:\Users\divid\Documents\C Development\TTools\bin\Debug\netcoreapp3.1\TTools.deps.json
+C:\Users\divid\Documents\C Development\TTools\bin\Debug\netcoreapp3.1\TTools.runtimeconfig.json
+C:\Users\divid\Documents\C Development\TTools\bin\Debug\netcoreapp3.1\TTools.runtimeconfig.dev.json
+C:\Users\divid\Documents\C Development\TTools\bin\Debug\netcoreapp3.1\TTools.dll
+C:\Users\divid\Documents\C Development\TTools\bin\Debug\netcoreapp3.1\TTools.pdb
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\TTools.csprojAssemblyReference.cache
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\TTools_MarkupCompile.cache
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\TTools_MarkupCompile.lref
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\TTools.g.resources
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\TTools.AssemblyInfoInputs.cache
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\TTools.AssemblyInfo.cs
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\TTools.dll
+C:\Users\divid\Documents\C Development\TTools\obj\Debug\netcoreapp3.1\TTools.pdb
