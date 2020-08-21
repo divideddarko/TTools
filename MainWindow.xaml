@@ -5,11 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TTools"
         mc:Ignorable="d"
-<<<<<<< HEAD
-        Title="Twitch Tools" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="welcome" Content="Start" Click="welcomeClick" Width="150" Height="40"/>
-=======
         Title="Twtich Tools" Height="450" Width="800">
     <Grid>
         <DockPanel>
@@ -28,6 +23,5 @@
         </Menu>
         <TextBox AcceptsReturn="True" />
     </DockPanel>
->>>>>>> 06798e4a98b72e8ab077fe71339ab92d41a02b1c
     </Grid>
 </Window>
