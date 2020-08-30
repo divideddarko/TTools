@@ -1,9 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
+  <ItemGroup><!-- Open Menu -->
+    <Resource Include="Images/Func/menuClosedBtn.png"/>
+    <Resource Include="Images/Func/menuOpenBtn.png"/><!-- Window Controllers -->
+    <Resource Include="Images/Window/minimizeWindowBtn.png"/>
+    <Resource Include="Images/Window/maximizeWindowBtn.png"/>
+    <Resource Include="Images/Window/RestoreWindowBtn.png"/>
+    <Resource Include="Images/Window/closeWindowBtn.png"/>
+  </ItemGroup>
 </Project>
