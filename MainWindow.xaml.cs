@@ -31,6 +31,21 @@ namespace TTools
             this.DragMove();
         }
 
+        void resizeWindow(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                if ((this.WindowState).ToString() != "Maximized")
+                {
+                    this.WindowState = WindowState.Maximized;
+                }
+                else
+                {
+                    this.WindowState = WindowState.Normal;
+                }
+            }
+        }
+
         void WindowController(object sender, RoutedEventArgs e)
         {
 

@@ -8,3 +8,5 @@ appsettings.json
 #ignore directories
 /.vscode
 /bin
+/obj
+/.vs
