@@ -165,7 +165,25 @@
                 <ImageBrush ImageSource="Images/Func/menuClosedBtn.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
-        <Rectangle x:Name="menuTray" Grid.Row="1" Grid.ColumnSpan="2" Fill="#6C5B7B" Opacity="{Binding}"/>
+        <Grid x:Name="menuTray" Grid.Row="1" Grid.ColumnSpan="2" Opacity="{Binding}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.RowSpan="6" Grid.Column="1" Fill="#6C5B7B"/>
+            <Button Grid.Row="0">Text=&quot;button 1&quot;</Button>
+            <Button Grid.Row="1">Text=&quot;button 2&quot;</Button>
+            <Button Grid.Row="2">Text=&quot;button 3&quot;</Button>
+            <Button Grid.Row="3">Text=&quot;button 4&quot;</Button>
+            <Button Grid.Row="4">Text=&quot;button 5&quot;</Button>
+        </Grid>
         <DockPanel Grid.Row="0" Grid.Column="3">
             <Button x:Name="minimize" Click="WindowController" Height="18" Width="18" BorderThickness="0" DockPanel.Dock="Left" Style="{DynamicResource miniStyle}" Cursor="Hand">
                 <Button.Background>
@@ -183,7 +201,7 @@
                 </Button.Background>
             </Button>
         </DockPanel><!-- Developer Console Item -->
-        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="#000000"/>
+        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="#000000"></Rectangle>
         <TextBlock x:Name="DevWindowOutput" Grid.Row="3" Grid.ColumnSpan="3" Text="Welcome!" Foreground="#FFFFFF"/>
     </Grid>
 </Window>
