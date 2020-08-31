@@ -147,7 +147,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid Background="#355C7D" MouseDown="OnDragMoveWindow">
+    <Grid Background="#355C7D">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="32"/>
             <ColumnDefinition Width="*"/>
@@ -158,7 +158,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#6C5B7B" MouseDown="resizeWindow"/>
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#6C5B7B" MouseDown="titleBarWindowController"/>
         <Button Height="18" Width="18" Grid.Row="0" Grid.Column="0" BorderThickness="0" Click="openMenu" Style="{DynamicResource burgerStyle}" Cursor="Hand">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Func/menuClosedBtn.png" Stretch="Fill"></ImageBrush>

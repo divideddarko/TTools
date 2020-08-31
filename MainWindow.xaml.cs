@@ -26,12 +26,7 @@ namespace TTools
             InitializeComponent();
         }
 
-        void moveWindow()
-        {
-            this.DragMove();
-        }
-
-        void resizeWindow(object sender, MouseButtonEventArgs e)
+        void titleBarWindowController(object sender, MouseButtonEventArgs e)
         {
             if (e.ClickCount == 2)
             {
@@ -44,11 +39,12 @@ namespace TTools
                     this.WindowState = WindowState.Normal;
                 }
             }
+
+            DragMove();
         }
 
         void WindowController(object sender, RoutedEventArgs e)
         {
-
             Button values = sender as Button;
             string senderName = values.Name;
 
@@ -77,24 +73,8 @@ namespace TTools
 
         private void openMenu(object sender, RoutedEventArgs e)
         {
-            // Button values = sender as Button;
-
-            // string senderName = values.Name;
-
-            // ImageBrush ib = new ImageBrush();
-            // ib.ImageSource = new BitmapImage(new Uri(@"open-menuopen.png", UriKind.Relative));
-
-            // values.Background = ib;
-
-
-
-
             MessageBox.Show("Hello");
         }
 
-        private void OnDragMoveWindow(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
     }
 }
