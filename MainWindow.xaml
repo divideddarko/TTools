@@ -1,12 +1,4 @@
-﻿<Window x:Class="TTools.MainWindow"
-xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-xmlns:local="clr-namespace:TTools"
-mc:Ignorable="d" Title="Twtich Tools" Height="450" Width="800" AllowsTransparency="True"
-ResizeMode="CanResize" WindowStyle="None" SizeChanged="windowSizeChanged"
->
+﻿<Window x:Class="TTools.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:TTools" mc:Ignorable="d" Title="Twtich Tools" Height="450" Width="800" AllowsTransparency="True" ResizeMode="CanResize" WindowStyle="None" SizeChanged="windowSizeChanged">
     <Window.Resources>
         <ImageBrush x:Key="menuIcon" ImageSource="Images/Func/menuOpenBtn.png" Stretch="Fill"/>
         <ImageBrush x:Key="minimizeIcon" ImageSource="Images/Window/minimizeWindowBtn.png" Stretch="Fill"/>
@@ -158,6 +150,7 @@ ResizeMode="CanResize" WindowStyle="None" SizeChanged="windowSizeChanged"
     <Grid Background="#355C7D">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="32"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="105"/>
         </Grid.ColumnDefinitions>
@@ -166,14 +159,14 @@ ResizeMode="CanResize" WindowStyle="None" SizeChanged="windowSizeChanged"
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#6C5B7B" MouseDown="titleBarWindowController"/>
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="#6C5B7B" MouseDown="titleBarWindowController"/>
         <Button Height="18" Width="18" Grid.Row="0" Grid.Column="0" BorderThickness="0" Click="openMenu" Style="{DynamicResource burgerStyle}" Cursor="Hand">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Func/menuClosedBtn.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
-        <Rectangle x:Name="menuTray" Grid.Row="1" Grid.Column="0" Fill="#6C5B7B" Opacity="{Binding}" />
-        <DockPanel Grid.Row="0" Grid.Column="2">
+        <Rectangle x:Name="menuTray" Grid.Row="1" Grid.ColumnSpan="2" Fill="#6C5B7B" Opacity="{Binding}"/>
+        <DockPanel Grid.Row="0" Grid.Column="3">
             <Button x:Name="minimize" Click="WindowController" Height="18" Width="18" BorderThickness="0" DockPanel.Dock="Left" Style="{DynamicResource miniStyle}" Cursor="Hand">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/Window/minimizeWindowBtn.png" Stretch="Fill"></ImageBrush>
@@ -190,7 +183,7 @@ ResizeMode="CanResize" WindowStyle="None" SizeChanged="windowSizeChanged"
                 </Button.Background>
             </Button>
         </DockPanel><!-- Developer Console Item -->
-        <Rectangle Grid.Row="3" Grid.ColumnSpan="3" Fill="#000000"/>
+        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="#000000"/>
         <TextBlock x:Name="DevWindowOutput" Grid.Row="3" Grid.ColumnSpan="3" Text="Welcome!" Foreground="#FFFFFF"/>
     </Grid>
 </Window>

@@ -21,9 +21,12 @@ namespace TTools
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static int opacity { get; set; } = 0;
         public MainWindow()
         {
             InitializeComponent();
+
+            menuTray.Opacity = opacity;
         }
 
         void titleBarWindowController(object sender, MouseButtonEventArgs e)
@@ -73,7 +76,7 @@ namespace TTools
 
         private void openMenu(object sender, RoutedEventArgs e)
         {
-            int vis = (menuTray.Opacity == 0) ? 1 : 0;
+            int vis = (menuTray.Opacity == 1) ? 0 : 1;
             menuTray.Opacity = vis;
         }
 
