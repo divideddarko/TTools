@@ -73,7 +73,21 @@ namespace TTools
 
         private void openMenu(object sender, RoutedEventArgs e)
         {
+                // Show left menu
+
             MessageBox.Show("Hello");
+        }
+
+        public void windowSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.BorderThickness = new System.Windows.Thickness(6);
+            }
+            else
+            {
+                this.BorderThickness = new System.Windows.Thickness(0);
+            }
         }
 
     }
