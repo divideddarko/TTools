@@ -11,5 +11,6 @@
     <Resource Include="Images/Window/maximizeWindowBtn.png"/>
     <Resource Include="Images/Window/RestoreWindowBtn.png"/>
     <Resource Include="Images/Window/closeWindowBtn.png"/>
+    <Resource Include="Images/Misc/LoginUser.png"/>
   </ItemGroup>
 </Project>
