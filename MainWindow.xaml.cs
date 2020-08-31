@@ -73,9 +73,8 @@ namespace TTools
 
         private void openMenu(object sender, RoutedEventArgs e)
         {
-                // Show left menu
-
-            MessageBox.Show("Hello");
+            int vis = (menuTray.Opacity == 0) ? 1 : 0;
+            menuTray.Opacity = vis;
         }
 
         public void windowSizeChanged(object sender, SizeChangedEventArgs e)

@@ -172,6 +172,7 @@ ResizeMode="CanResize" WindowStyle="None" SizeChanged="windowSizeChanged"
                 <ImageBrush ImageSource="Images/Func/menuClosedBtn.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
+        <Rectangle x:Name="menuTray" Grid.Row="1" Grid.Column="0" Fill="#6C5B7B" Opacity="{Binding}" />
         <DockPanel Grid.Row="0" Grid.Column="2">
             <Button x:Name="minimize" Click="WindowController" Height="18" Width="18" BorderThickness="0" DockPanel.Dock="Left" Style="{DynamicResource miniStyle}" Cursor="Hand">
                 <Button.Background>
