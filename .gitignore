@@ -5,6 +5,8 @@
 #ignore application settings
 appsettings.json
 
+app.xaml
+
 #ignore directories
 /.vscode
 /bin
