@@ -6,6 +6,7 @@
 appsettings.json
 
 app.xaml
+./app_code/SQLConnection.cs
 
 #ignore directories
 /.vscode
