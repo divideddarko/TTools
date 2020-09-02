@@ -5,12 +5,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup><!-- Open Menu -->
-    <Resource Include="Images/Func/menuClosedBtn.png"/>
-    <Resource Include="Images/Func/menuOpenBtn.png"/><!-- Window Controllers -->
-    <Resource Include="Images/Window/minimizeWindowBtn.png"/>
-    <Resource Include="Images/Window/maximizeWindowBtn.png"/>
-    <Resource Include="Images/Window/RestoreWindowBtn.png"/>
-    <Resource Include="Images/Window/closeWindowBtn.png"/>
-    <Resource Include="Images/Misc/LoginUser.png"/>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.0.1" />
+    <Resource Include="Images/Func/menuClosedBtn.png" />
+    <Resource Include="Images/Func/menuOpenBtn.png" /><!-- Window Controllers -->
+    <Resource Include="Images/Window/minimizeWindowBtn.png" />
+    <Resource Include="Images/Window/maximizeWindowBtn.png" />
+    <Resource Include="Images/Window/RestoreWindowBtn.png" />
+    <Resource Include="Images/Window/closeWindowBtn.png" />
+    <Resource Include="Images/Misc/LoginUser.png" />
+    <PackageReference Include="System.Data.SqlClient" />
   </ItemGroup>
 </Project>

@@ -75,7 +75,7 @@
         </DockPanel>
         <Image Grid.Row="2" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/>
         <TextBox Grid.Row="4" Grid.Column="1" MaxLines="1" TextWrapping="NoWrap" AcceptsReturn="False">Username</TextBox>
-        <TextBox Grid.Row="5" Grid.Column="1" MaxLines="1" TextWrapping="NoWrap" AcceptsReturn="False">Password</TextBox>
+        <PasswordBox Grid.Row="5" Grid.Column="1" Height="Auto"></PasswordBox>
         <Grid Grid.Row="6" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -84,8 +84,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Grid.Column="0" Cursor="Hand">Login</Button>
-            <Button Grid.Row="0" Grid.Column="1" Cursor="Hand">Register</Button>
+            <Button Grid.Row="0" Grid.Column="0" Cursor="Hand">Register</Button>
+            <Button Grid.Row="0" Grid.Column="1" Cursor="Hand" Click="loginBtn">Login</Button>
         </Grid>
     </Grid>
 </Window>

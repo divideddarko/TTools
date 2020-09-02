@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using TTools.DBConn;
+using Microsoft.Data.SqlClient;
 
 namespace TTools
 {
@@ -53,6 +55,23 @@ namespace TTools
                 default:
                     break;
             }
+        }
+
+        private void loginBtn(object sender, RoutedEventArgs e)
+        {
+            // MessageBox.Show("Logged in");
+            SQLConnection cmd = new SQLConnection();
+            SqlDataReader reader = cmd.GetReader("SELECT * FROM TTools.dbo.Users");
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    MessageBox.Show(reader[0].ToString());
+                }
+            }
+            reader.Close();
+            cmd.CloseConnection();
         }
     }
 }
