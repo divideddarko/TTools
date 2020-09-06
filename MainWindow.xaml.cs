@@ -26,7 +26,7 @@ namespace TTools
         {
             InitializeComponent();
 
-            menuTray.Opacity = opacity;
+
         }
 
         void titleBarWindowController(object sender, MouseButtonEventArgs e)

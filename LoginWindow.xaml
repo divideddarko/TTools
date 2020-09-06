@@ -1,4 +1,4 @@
-<Window x:Class="TTools.LoginWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:TTools" mc:Ignorable="d" Title="Twtich Tools" Height="650" Width="450" AllowsTransparency="True" ResizeMode="CanResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+<Window x:Class="TTools.LoginWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:TTools" mc:Ignorable="d" Title="Twtich Tools" Height="550" Width="950" AllowsTransparency="True" ResizeMode="CanResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ImageBrush x:Key="closeIcon" ImageSource="Images/Window/closeWindowBtn.png" Stretch="Fill"/>
         <Style x:Key="FocusVisual">
@@ -53,39 +53,87 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="18"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
-        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#6C5B7B" MouseDown="titleBarWindowController"/>
-        <DockPanel Grid.Row="0" Grid.Column="2">
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="5" Fill="#6C5B7B" MouseDown="titleBarWindowController"/>
+        <DockPanel Grid.Row="0" Grid.Column="4">
             <Button x:Name="close" Click="WindowController" Height="18" Width="18" BorderThickness="0" DockPanel.Dock="Left" Style="{DynamicResource closeStyle}" Cursor="Hand">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/Window/closeWindowBtn.png" Stretch="Fill"></ImageBrush>
                 </Button.Background>
             </Button>
         </DockPanel>
-        <Image Grid.Row="2" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/>
-        <TextBox Grid.Row="4" Grid.Column="1" MaxLines="1" TextWrapping="NoWrap" AcceptsReturn="False">Username</TextBox>
-        <PasswordBox Grid.Row="5" Grid.Column="1" Height="Auto"></PasswordBox>
-        <Grid Grid.Row="6" Grid.Column="1">
+        <Grid x:Name="registerGrid" Grid.Row="1" Grid.Column="1" Opacity="{Binding}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="32"/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Grid.Column="0" Cursor="Hand">Register</Button>
-            <Button Grid.Row="0" Grid.Column="1" Cursor="Hand" Click="loginBtn">Login</Button>
+            <Image Grid.Row="0" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/>
+            <TextBox x:Name="usernameLogin" Grid.Row="1" Grid.Column="1" MaxLines="1" TextWrapping="NoWrap" AcceptsReturn="False">Username</TextBox>
+            <PasswordBox x:Name="passwordLogin" Grid.Row="2" Grid.Column="1" Height="Auto"></PasswordBox>
+            <Grid Grid.Row="3" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0">
+                    Already have an account
+                    <Hyperlink Click="registerAccountBtn">Login
+                </Hyperlink>
+                </TextBlock>
+                <Button Grid.Row="0" Grid.Column="1" Cursor="Hand" Click="registerAccountBtn">Register</Button>
+            </Grid>
+        </Grid>
+        <Grid x:Name="LoginGrid" Grid.Row="1" Grid.Column="3" Opacity="{Binding}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="15"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/>
+            <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <Label>Username</Label>
+                    <TextBox Width="250"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label HorizontalAlignment="Left">Password</Label>
+                    <PasswordBox HorizontalAlignment="Right" Width="250"></PasswordBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label HorizontalAlignment="Left">Confirm Password</Label>
+                    <PasswordBox HorizontalAlignment="Right" Width="250"></PasswordBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Don&apos;t have an account
+                        <Hyperlink Click="registerAccountBtn">Register</Hyperlink>
+                    </TextBlock>
+                    <Button Cursor="Hand" Click="loginBtn">Login</Button>
+                </StackPanel>
+            </WrapPanel>
         </Grid>
     </Grid>
 </Window>
