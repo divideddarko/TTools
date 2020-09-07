@@ -79,28 +79,35 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="250"/>
-                <RowDefinition Height="32"/>
-                <RowDefinition Height="32"/>
-                <RowDefinition Height="32"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="15"/>
             </Grid.RowDefinitions>
             <Image Grid.Row="0" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/>
-            <TextBox x:Name="usernameLogin" Grid.Row="1" Grid.Column="1" MaxLines="1" TextWrapping="NoWrap" AcceptsReturn="False">Username</TextBox>
-            <PasswordBox x:Name="passwordLogin" Grid.Row="2" Grid.Column="1" Height="Auto"></PasswordBox>
-            <Grid Grid.Row="3" Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0">
-                    Already have an account
-                    <Hyperlink Click="registerAccountBtn">Login
-                </Hyperlink>
-                </TextBlock>
-                <Button Grid.Row="0" Grid.Column="1" Cursor="Hand" Click="registerAccountBtn">Register</Button>
-            </Grid>
+            <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <Label>Username</Label>
+                    <TextBox x:Name="usernameRegister" Width="250"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label HorizontalAlignment="Left">Password</Label>
+                    <PasswordBox x:Name="regPassOne" HorizontalAlignment="Right" Width="250"></PasswordBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label HorizontalAlignment="Left">Confirm Password</Label>
+                    <PasswordBox x:Name="regPassTwo" HorizontalAlignment="Right" Width="250"></PasswordBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Forgotten password
+                        <Hyperlink>Reset Password</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Already have an account
+                        <Hyperlink Click="toggleRegLoginBtn">Login</Hyperlink>
+                    </TextBlock>
+                    <Button Grid.Row="0" Grid.Column="1" Cursor="Hand" Click="registerAccountBtn">Register</Button>
+                </StackPanel>
+            </WrapPanel>
         </Grid>
         <Grid x:Name="LoginGrid" Grid.Row="1" Grid.Column="3" Opacity="{Binding}">
             <Grid.ColumnDefinitions>
@@ -117,20 +124,21 @@
             <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Horizontal">
                     <Label>Username</Label>
-                    <TextBox Width="250"></TextBox>
+                    <TextBox x:Name="usernameLogin" Width="250" MaxLines="1" TextWrapping="NoWrap" AcceptsReturn="False"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label HorizontalAlignment="Left">Password</Label>
-                    <PasswordBox HorizontalAlignment="Right" Width="250"></PasswordBox>
+                    <Label>Password</Label>
+                    <PasswordBox x:Name="passwordLogin" Width="250"></PasswordBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label HorizontalAlignment="Left">Confirm Password</Label>
-                    <PasswordBox HorizontalAlignment="Right" Width="250"></PasswordBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Don&apos;t have an account
-                        <Hyperlink Click="registerAccountBtn">Register</Hyperlink>
+                    <TextBlock>
+                        Don&apos;t have an account
+                        <Hyperlink Click="toggleRegLoginBtn">
+                            Register
+                        </Hyperlink>
                     </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <Button Cursor="Hand" Click="loginBtn">Login</Button>
                 </StackPanel>
             </WrapPanel>
