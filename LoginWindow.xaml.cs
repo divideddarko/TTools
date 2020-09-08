@@ -100,47 +100,60 @@ namespace TTools
             List<string> errors = new List<string>();
 
             string inputPatternAllowance = @"^[A-Za-z0-9_.]+$";
+            string emailPatternAllowance = @"";
 
             Match userName = Regex.Match(usernameRegister.Text, inputPatternAllowance);
+            Match emailAddress = Regex.Match(emailRegiser.Text, emailPatternAllowance);
 
             // Check that all feilds have been completed
+
+            if (!(emailAddress.Success))
+            {
+                emailRegResults.Content = $"Please check the email address";
+            }
+
             if (string.IsNullOrWhiteSpace(usernameRegister.Text) || !(userName.Success))
             {
                 errors.Add("Please check the username");
+                usernameRegResults.Content = $"Check your username matches AlphaNumeric Characters";
             }
 
             if (string.IsNullOrWhiteSpace(regPassOne.Password))
             {
                 errors.Add("Please enter a password");
+                passOneRegResults.Content = "Please check that your password match";
             }
 
             if (regPassOne.Password != regPassTwo.Password || string.IsNullOrWhiteSpace(regPassTwo.Password))
             {
                 errors.Add("Please ensure that your passwords match");
+                passTwoRegResults.Content = "Please check that your password match";
+
             }
 
             if (errors.Count > 0)
             {
-                errorReports("Please check your registration details", errors);
+                // errorReports("Please check your registration details", errors);
+
             }
             else
             {
                 MessageBox.Show("Welcome to the party");
-                int check = checkUserName(usernameRegister.Text);
+                int check = checkUserName(emailRegister.Text);
 
                 if (check < 1)
                 {
-                    insertNewUser(usernameRegister.Text, regPassOne.Password);
+                    insertNewUser(usernameRegister.Text, regPassOne.Password, emailRegister.Text);
                 }
             }
         }
 
-        private int checkUserName(string username)
+        private int checkUserName(string email)
         {
             int i = 0;
             // Check to see if the username already exists.
             SQLConnection cmd = new SQLConnection();
-            SqlDataReader reader = cmd.GetReader("SELECT * FROM Users WHERE username = @0", username);
+            SqlDataReader reader = cmd.GetReader("SELECT * FROM Users WHERE email = @0", email);
 
             if (reader.HasRows)
             {
@@ -148,8 +161,7 @@ namespace TTools
                 {
                     i += 1;
                 }
-                MessageBox.Show($"Username {username} \n\rIs already taken, try again.");
-                Reporting.SQLReporting("Error", $"User attempted to create a dupe user under {username}");
+                emailRegResults.Content = "This email is already in use";
             }
 
             reader.Close();
@@ -158,12 +170,12 @@ namespace TTools
             return i;
         }
 
-        private void insertNewUser(string username, string password)
+        private void insertNewUser(string username, string password, string email)
         {
             try
             {
                 SQLConnection cmd = new SQLConnection();
-                SqlDataAdapter reader = cmd.CreateSet("INSERT INTO Users (username, accountTypeId, password) VALUES (@0, @1, @2)", username, "2", password);
+                SqlDataAdapter reader = cmd.CreateSet("INSERT INTO Users (username, accountTypeId, password, email) VALUES (@0, @1, @2, @3)", username, "2", password, email);
                 cmd.CloseConnection();
             }
             catch (Exception ex)

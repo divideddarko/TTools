@@ -85,15 +85,31 @@
             <Image Grid.Row="0" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/>
             <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Horizontal">
+                    <Label>Email</Label>
+                    <Label x:Name="emailRegResults" Foreground="Red"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="emailRegister" Width="250"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <Label>Username</Label>
+                    <Label x:Name="usernameRegResults" Foreground="Red"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="usernameRegister" Width="250"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label HorizontalAlignment="Left">Password</Label>
+                    <Label x:Name="passOneRegResults" Foreground="Red"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <PasswordBox x:Name="regPassOne" HorizontalAlignment="Right" Width="250"></PasswordBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label HorizontalAlignment="Left">Confirm Password</Label>
+                    <Label x:Name="passTwoRegResults" Foreground="Red"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <PasswordBox x:Name="regPassTwo" HorizontalAlignment="Right" Width="250"></PasswordBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
