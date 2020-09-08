@@ -67,7 +67,7 @@ namespace TTools
                     }
                     break;
                 case "close":
-                    System.Windows.Application.Current.Shutdown();
+                    this.Close();
                     break;
                 default:
                     break;

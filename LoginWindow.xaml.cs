@@ -17,6 +17,7 @@ using System.Diagnostics;
 using TTools.DBConn;
 using Microsoft.Data.SqlClient;
 using TTools.Windowsconfiguration;
+using TTools.Logging;
 
 namespace TTools
 {
@@ -66,7 +67,7 @@ namespace TTools
                     }
                     break;
                 case "close":
-                    System.Windows.Application.Current.Shutdown();
+                    this.Close();
                     break;
                 default:
                     break;
@@ -125,61 +126,88 @@ namespace TTools
             else
             {
                 MessageBox.Show("Welcome to the party");
-                insertNewUser(usernameRegister.Text, regPassOne.Password);
-            }
-        }
+                int check = checkUserName(usernameRegister.Text);
 
-
-        private void insertNewUser(string username, string password)
-        {
-            // Check to see if the username already exists.
-            try
-            {
-                SQLConnection cmd = new SQLConnection();
-                SqlDataReader reader = cmd.GetReader("SELECT * FROM Users WHERE username = @0", username);
-
-                if (reader.HasRows)
+                if (check < 1)
                 {
-                    MessageBox.Show("Username already taken");
-                    return;
+                    insertNewUser(usernameRegister.Text, regPassOne.Password);
                 }
-                reader.Close();
-                cmd.CloseConnection();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error, please try again\n\r{ex}");
-            }
-
-
-            try
-            {
-                SQLConnection cmd = new SQLConnection();
-                SqlDataAdapter reader = cmd.CreateSet("INSERT INTO Users (username) VALUES (@0)", username);
-                cmd.CloseConnection();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("There was an issue, please try again later");
-            }
-
         }
 
-        private void loginBtn(object sender, RoutedEventArgs e)
+        private int checkUserName(string username)
         {
-
+            int i = 0;
+            // Check to see if the username already exists.
             SQLConnection cmd = new SQLConnection();
-            SqlDataReader reader = cmd.GetReader("SELECT * FROM TTools.dbo.Users");
+            SqlDataReader reader = cmd.GetReader("SELECT * FROM Users WHERE username = @0", username);
 
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    MessageBox.Show(reader[1].ToString());
+                    i += 1;
                 }
+                MessageBox.Show($"Username {username} \n\rIs already taken, try again.");
+                Reporting.SQLReporting("Error", $"User attempted to create a dupe user under {username}");
             }
+
             reader.Close();
             cmd.CloseConnection();
+
+            return i;
+        }
+
+        private void insertNewUser(string username, string password)
+        {
+            try
+            {
+                SQLConnection cmd = new SQLConnection();
+                SqlDataAdapter reader = cmd.CreateSet("INSERT INTO Users (username, accountTypeId, password) VALUES (@0, @1, @2)", username, "2", password);
+                cmd.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an issue, please try again later");
+                Reporting.SQLReporting("Error", $"Testing the reporting system {ex}");
+            }
+
+            MessageBox.Show("Successfully Signed up");
+        }
+
+        private void loginBtn(object sender, RoutedEventArgs e)
+        {
+            int results = checkUserLogin(usernameLogin.Text, passwordLogin.Password);
+
+            if (results > 0)
+            {
+                MainWindow mw = new MainWindow();
+                mw.Show();
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("PLease check your login credentials");
+            }
+
+        }
+
+        private int checkUserLogin(string username, string password)
+        {
+            int i = 0;
+            SQLConnection cmd = new SQLConnection();
+            SqlDataReader reader = cmd.GetReader("SELECT username, password FROM TTools.dbo.Users WHERE username = @0 AND password = @1", username, password);
+
+            if (reader.HasRows)
+            {
+                i += 1;
+            }
+
+            reader.Close();
+            cmd.CloseConnection();
+
+            return i;
         }
     }
 }
