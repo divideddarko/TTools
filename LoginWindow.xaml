@@ -71,18 +71,17 @@
                 </Button.Background>
             </Button>
         </DockPanel>
-        <Grid x:Name="registerGrid" Grid.Row="1" Grid.Column="1" Opacity="{Binding}">
+        <Grid x:Name="registerGrid" Grid.Row="1" Grid.Column="1" Visibility="{Binding}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="350"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="250"/>
+                <RowDefinition Height="15"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="15"/>
-            </Grid.RowDefinitions>
-            <Image Grid.Row="0" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/>
+            </Grid.RowDefinitions><!-- <Image Grid.Row="0" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/> -->
             <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Horizontal">
                     <Label>Email</Label>
@@ -125,18 +124,17 @@
                 </StackPanel>
             </WrapPanel>
         </Grid>
-        <Grid x:Name="LoginGrid" Grid.Row="1" Grid.Column="3" Opacity="{Binding}">
+        <Grid x:Name="LoginGrid" Grid.Row="1" Grid.Column="3" Visibility="{Binding}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="350"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="250"/>
+                <RowDefinition Height="15"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="15"/>
             </Grid.RowDefinitions>
-            <Image Grid.Row="0" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/>
             <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Horizontal">
                     <Label>Username</Label>

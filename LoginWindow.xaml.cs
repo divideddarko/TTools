@@ -26,8 +26,8 @@ namespace TTools
         public LoginWindow()
         {
             InitializeComponent();
-            registerGrid.Opacity = 0;
-            LoginGrid.Opacity = 1;
+            registerGrid.Visibility = Visibility.Collapsed;
+            LoginGrid.Visibility = Visibility.Visible;
         }
 
         private void titleBarWindowController(object sender, MouseButtonEventArgs e)
@@ -76,11 +76,11 @@ namespace TTools
 
         public void toggleRegLoginBtn(object sender, RoutedEventArgs e)
         {
-            int visibility = (LoginGrid.Opacity == 0) ? 1 : 0;
-            int Regvisibility = (registerGrid.Opacity == 0) ? 1 : 0;
+            Visibility visibility = (LoginGrid.Visibility == Visibility.Collapsed) ? Visibility.Visible : Visibility.Collapsed;
+            Visibility Regvisibility = (registerGrid.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
 
-            LoginGrid.Opacity = visibility;
-            registerGrid.Opacity = Regvisibility;
+            LoginGrid.Visibility = visibility;
+            registerGrid.Visibility = Regvisibility;
         }
 
         public void errorReports(string headlineErrorMessage, List<string> errors)
@@ -100,10 +100,10 @@ namespace TTools
             List<string> errors = new List<string>();
 
             string inputPatternAllowance = @"^[A-Za-z0-9_.]+$";
-            string emailPatternAllowance = @"";
+            string emailPatternAllowance = @"^[\w+-\.]+@([\w-]+\.)+[\w-]{2,4}$";
 
             Match userName = Regex.Match(usernameRegister.Text, inputPatternAllowance);
-            Match emailAddress = Regex.Match(emailRegiser.Text, emailPatternAllowance);
+            Match emailAddress = Regex.Match(emailRegister.Text, emailPatternAllowance);
 
             // Check that all feilds have been completed
 
@@ -111,11 +111,19 @@ namespace TTools
             {
                 emailRegResults.Content = $"Please check the email address";
             }
+            else
+            {
+                emailRegResults.Content = "";
+            }
 
             if (string.IsNullOrWhiteSpace(usernameRegister.Text) || !(userName.Success))
             {
                 errors.Add("Please check the username");
                 usernameRegResults.Content = $"Check your username matches AlphaNumeric Characters";
+            }
+            else
+            {
+                usernameRegResults.Content = "";
             }
 
             if (string.IsNullOrWhiteSpace(regPassOne.Password))
@@ -123,12 +131,19 @@ namespace TTools
                 errors.Add("Please enter a password");
                 passOneRegResults.Content = "Please check that your password match";
             }
+            else
+            {
+                passOneRegResults.Content = "";
+            }
 
             if (regPassOne.Password != regPassTwo.Password || string.IsNullOrWhiteSpace(regPassTwo.Password))
             {
                 errors.Add("Please ensure that your passwords match");
                 passTwoRegResults.Content = "Please check that your password match";
-
+            }
+            else
+            {
+                passTwoRegResults.Content = "";
             }
 
             if (errors.Count > 0)
