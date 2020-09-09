@@ -13,5 +13,6 @@
     <Resource Include="Images/Window/RestoreWindowBtn.png"/>
     <Resource Include="Images/Window/closeWindowBtn.png"/>
     <Resource Include="Images/Misc/LoginUser.png"/>
+    <Resource Include="Resources/fonts/Cascadia.ttf"/>
   </ItemGroup>
 </Project>

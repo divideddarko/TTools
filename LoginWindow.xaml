@@ -84,6 +84,9 @@
             </Grid.RowDefinitions><!-- <Image Grid.Row="0" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/> -->
             <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Horizontal">
+                    <Label Content="Register"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <Label>Email</Label>
                     <Label x:Name="emailRegResults" Foreground="Red"/>
                 </StackPanel>
@@ -136,6 +139,9 @@
                 <RowDefinition Height="15"/>
             </Grid.RowDefinitions>
             <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Login" FontFamily="Resources/fonts/Cascadia" FontSize="32"/>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label>Username</Label>
                     <TextBox x:Name="usernameLogin" Width="250" MaxLines="1" TextWrapping="NoWrap" AcceptsReturn="False"/>
