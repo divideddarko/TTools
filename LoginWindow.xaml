@@ -51,16 +51,16 @@
     </Window.Resources>
     <Grid Background="#355C7D">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="18"/>
+            <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="15"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
+            <RowDefinition Height="15"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="40"/>
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
         <Rectangle Grid.Row="0" Grid.ColumnSpan="5" Fill="#6C5B7B" MouseDown="titleBarWindowController"/>
@@ -71,7 +71,7 @@
                 </Button.Background>
             </Button>
         </DockPanel>
-        <Grid x:Name="registerGrid" Grid.Row="1" Grid.Column="1" Visibility="{Binding}">
+        <Grid x:Name="registerGrid" Grid.Row="2" Grid.Column="1" Visibility="{Binding}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="350"/>
@@ -84,50 +84,52 @@
             </Grid.RowDefinitions><!-- <Image Grid.Row="0" Grid.Column="1" Source="Images/Misc/LoginUser.png" Height="128" Width="128"/> -->
             <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Register"/>
+                    <Label Content="Register" FontSize="24" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label>Email</Label>
-                    <Label x:Name="emailRegResults" Foreground="Red"/>
+                    <Label Content="Email" FontSize="18"/>
+                    <Label x:Name="emailRegResults" FontSize="18" Foreground="Red"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="emailRegister" Width="250"/>
+                    <TextBox x:Name="emailRegister" FontSize="18" Foreground="White" Padding="2,5,2,5" Margin="7,0,0,0" Width="300" Background="Transparent" BorderBrush="AliceBlue" BorderThickness="0,0,0,2"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label>Username</Label>
-                    <Label x:Name="usernameRegResults" Foreground="Red"/>
+                    <Label Content="Username" FontSize="18"/>
+                    <Label x:Name="usernameRegResults" FontSize="18" Foreground="Red"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="usernameRegister" Width="250"/>
+                    <TextBox x:Name="usernameRegister" FontSize="18" Foreground="White" Padding="2,5,2,5" Margin="7,0,0,0" Width="300" Background="Transparent" BorderBrush="AliceBlue" BorderThickness="0,0,0,2"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label HorizontalAlignment="Left">Password</Label>
-                    <Label x:Name="passOneRegResults" Foreground="Red"/>
+                    <Label Content="Password" FontSize="18"/>
+                    <Label x:Name="passOneRegResults" FontSize="18" Foreground="Red"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <PasswordBox x:Name="regPassOne" HorizontalAlignment="Right" Width="250"></PasswordBox>
+                    <PasswordBox x:Name="regPassOne" FontSize="18" Foreground="White" Padding="2,5,2,5" Margin="7,0,0,0" Width="300" Background="Transparent" BorderBrush="AliceBlue" BorderThickness="0,0,0,2"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label HorizontalAlignment="Left">Confirm Password</Label>
-                    <Label x:Name="passTwoRegResults" Foreground="Red"/>
+                    <Label Content="Confirm Password" FontSize="18"/>
+                    <Label x:Name="passTwoRegResults" FontSize="18" Foreground="Red"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <PasswordBox x:Name="regPassTwo" HorizontalAlignment="Right" Width="250"></PasswordBox>
+                    <PasswordBox x:Name="regPassTwo" FontSize="18" Foreground="White" Padding="2,5,2,5" Margin="7,0,0,0" Width="300" Background="Transparent" BorderBrush="AliceBlue" BorderThickness="0,0,0,2"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Forgotten password
-                        <Hyperlink>Reset Password</Hyperlink>
+                <StackPanel Orientation="Horizontal" Margin="7,5,0,5">
+                    <TextBlock FontSize="16">Forgotten password
+                        <Hyperlink FontSize="16" Foreground="White">Reset Password</Hyperlink>
                     </TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Already have an account
-                        <Hyperlink Click="toggleRegLoginBtn">Login</Hyperlink>
+                <StackPanel Orientation="Horizontal" Margin="7,5,0,5">
+                    <TextBlock FontSize="16">Already have an account
+                        <Hyperlink FontSize="16" Foreground="White" Click="toggleRegLoginBtn">Login</Hyperlink>
                     </TextBlock>
-                    <Button Grid.Row="0" Grid.Column="1" Cursor="Hand" Click="registerAccountBtn">Register</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="7,5,0,0">
+                    <Button Grid.Row="0" Grid.Column="1" Cursor="Hand" Click="registerAccountBtn" Background="Transparent" BorderBrush="AliceBlue" BorderThickness="2" Padding="5,5,5,5" Width="150">Register</Button>
                 </StackPanel>
             </WrapPanel>
         </Grid>
-        <Grid x:Name="LoginGrid" Grid.Row="1" Grid.Column="3" Visibility="{Binding}">
+        <Grid x:Name="LoginGrid" Grid.Row="2" Grid.Column="3" Visibility="{Binding}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="350"/>
@@ -140,26 +142,30 @@
             </Grid.RowDefinitions>
             <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Login" FontFamily="Resources/fonts/Cascadia" FontSize="32"/>
+                    <Label Content="Login" FontSize="24" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label>Username</Label>
-                    <TextBox x:Name="usernameLogin" Width="250" MaxLines="1" TextWrapping="NoWrap" AcceptsReturn="False"/>
+                    <Label Content="Username" FontSize="18"/>
+                    <Label x:Name="usernameLoginResults" Foreground="Red"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label>Password</Label>
-                    <PasswordBox x:Name="passwordLogin" Width="250"></PasswordBox>
+                    <TextBox x:Name="usernameLogin" FontSize="18" Foreground="White" Padding="2,5,2,5" Margin="7,0,0,0" Width="300" Background="Transparent" BorderBrush="AliceBlue" BorderThickness="0,0,0,2"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock>
+                    <Label Content="Password" FontSize="18"/>
+                    <Label x:Name="passwordLoginResults" Foreground="Red"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <PasswordBox x:Name="passwordLogin" FontSize="18" Foreground="White" Padding="2,5,2,5" Margin="7,0,0,0" Width="300" Background="Transparent" BorderBrush="AliceBlue" BorderThickness="0,0,0,2"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="7,5,0,5">
+                    <TextBlock FontSize="16">
                         Don&apos;t have an account
-                        <Hyperlink Click="toggleRegLoginBtn">
-                            Register
-                        </Hyperlink>
+                        <Hyperlink FontSize="16" Foreground="White" Click="toggleRegLoginBtn">Register</Hyperlink>
                     </TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Button Cursor="Hand" Click="loginBtn">Login</Button>
+                <StackPanel Orientation="Horizontal" Margin="7,5,0,0">
+                    <Button Cursor="Hand" Click="loginBtn" Background="Transparent" BorderBrush="AliceBlue" BorderThickness="2" Padding="5,5,5,5" Width="150">Login</Button>
                 </StackPanel>
             </WrapPanel>
         </Grid>
