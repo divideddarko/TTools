@@ -26,24 +26,10 @@ namespace TTools
         public LoginWindow()
         {
             InitializeComponent();
-            registerGrid.Visibility = Visibility.Collapsed;
-            LoginGrid.Visibility = Visibility.Visible;
         }
 
         private void titleBarWindowController(object sender, MouseButtonEventArgs e)
         {
-            if (e.ClickCount == 2)
-            {
-                if ((this.WindowState).ToString() != "Maximized")
-                {
-                    this.WindowState = WindowState.Maximized;
-                }
-                else
-                {
-                    this.WindowState = WindowState.Normal;
-                }
-            }
-
             DragMove();
         }
         void WindowController(object sender, RoutedEventArgs e)
@@ -51,36 +37,20 @@ namespace TTools
             Button values = sender as Button;
             string senderName = values.Name;
 
-            switch (senderName)
-            {
-                case "minimize":
-                    this.WindowState = WindowState.Minimized;
-                    break;
-                case "resize":
-                    if ((this.WindowState).ToString() != "Maximized")
-                    {
-                        this.WindowState = WindowState.Maximized;
-                    }
-                    else
-                    {
-                        this.WindowState = WindowState.Normal;
-                    }
-                    break;
-                case "close":
-                    this.Close();
-                    break;
-                default:
-                    break;
-            }
+            // switch (senderName)
+            // {
+            this.Close();
+            // }
         }
 
-        public void toggleRegLoginBtn(object sender, RoutedEventArgs e)
+        // toggleView changes the scene from New Account / Login / Reset Password
+        public void toggleView(object sender, RoutedEventArgs e)
         {
-            Visibility visibility = (LoginGrid.Visibility == Visibility.Collapsed) ? Visibility.Visible : Visibility.Collapsed;
-            Visibility Regvisibility = (registerGrid.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
+            Hyperlink values = sender as Hyperlink;
+            string hyperName = values.Name;
 
-            LoginGrid.Visibility = visibility;
-            registerGrid.Visibility = Regvisibility;
+            windowStyle ws = new windowStyle();
+            ws.opacitySettings(hyperName, LoginGrid, RegisterGrid, PasswordGrid);
         }
 
         public void errorReports(string headlineErrorMessage, List<string> errors)
@@ -93,6 +63,11 @@ namespace TTools
             }
 
             MessageBox.Show($"{headlineErrorMessage} \n\r{er}");
+        }
+
+        public void emailPass(object sender, RoutedEventArgs e)
+        {
+
         }
 
         public void registerAccountBtn(object sender, RoutedEventArgs e)

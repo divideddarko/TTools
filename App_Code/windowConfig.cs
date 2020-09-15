@@ -21,10 +21,34 @@ namespace TTools.Windowsconfiguration
 {
     public class windowStyle
     {
-        public void opacitySettings()
+        public void opacitySettings(string elementName, params Grid[] GridName)
         {
             // need to take in the object that is currently having their opacity changed.
             // potential that it reflects another control also, like the login and register options.
+            string[] newname = elementName.Split("Toggle");
+            foreach (Grid item in GridName)
+            {
+                // MessageBox.Show($"Button: {newname[0]} item: {item.Name}");
+                if ((newname[0] + "Grid") == item.Name)
+                {
+                    item.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    item.Visibility = Visibility.Collapsed;
+                    // Visibility GridNameVisibility = (item.Visibility == Visibility.Collapsed) ? Visibility.Visible : Visibility.Collapsed;
+                    // item.Visibility = GridNameVisibility;
+                    // item.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+    }
+
+    // class used to change the movement on a specific window.
+    public class windowMovement
+    {
+        public void move()
+        {
 
         }
     }
